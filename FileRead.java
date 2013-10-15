@@ -7,7 +7,7 @@ public class FileRead {
         @SuppressWarnings("unused")
      
 		Process process = runtime.exec("C:/WINDOWS/system32/notepad.exe D:/Java/FIO/FIOTest.txt");  
-		System.out.println("Hi Sasi");
+		System.out.println("Hello Sasi");
       }  
       catch (Exception e)  
       {  
