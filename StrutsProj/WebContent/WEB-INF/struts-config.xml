@@ -1,0 +1,91 @@
+
+ <struts-config>
+	<form-beans>
+		<form-bean name="LoginForm" type="com.ofs.sasi.struts.LoginForm.form.LoginForm" />
+		<form-bean name="registerForm" type="com.ofs.sasi.struts.LoginForm.form.RegisterForm" />
+		<form-bean name="AdminForm" type="com.ofs.sasi.struts.LoginForm.form.AdminForm" />
+		<form-bean name="AdminLoginForm" type="com.ofs.sasi.struts.LoginForm.form.AdminLoginForm" />
+		<form-bean name="DepositeForm" type="com.ofs.sasi.struts.LoginForm.form.DepositeForm" />
+		<form-bean name="WithdrawlForm" type="com.ofs.sasi.struts.LoginForm.form.WithdrawlForm" />
+		<form-bean name="TransferForm" type="com.ofs.sasi.struts.LoginForm.form.TransferForm" />
+		<form-bean name="ProfileForm" type="com.ofs.sasi.struts.LoginForm.form.ProfileForm" />
+		<form-bean name="RecordForm" type="com.ofs.sasi.struts.LoginForm.form.RecordForm" />
+		<form-bean name="fileUploadForm" type="com.ofs.sasi.struts.LoginForm.form.FileUploadForm"/>
+	</form-beans>
+	
+	<action-mappings>
+		<action path="/login" name="LoginForm" validate="true" input="/index.jsp"
+			type="com.ofs.sasi.struts.ActionForm.action.LoginAction">
+			<forward name="success" path="/welcome.jsp" />
+			<forward name="failure" path="/Fail.jsp" />
+		</action>
+		
+		<action path="/admin" name="AdminLoginForm" validate="true" input="/adminlogin.jsp"
+			type="com.ofs.sasi.struts.ActionForm.action.AdminLoginAction">
+			<forward name="success" path="/admin.jsp" />
+			<forward name="failure" path="/adminlogin.jsp" />
+		</action>
+		
+		<action path="/RegSubmit" name="registerForm" validate="true"
+			type="com.ofs.sasi.struts.ActionForm.action.RegisterAction" 
+			input="/register.jsp">
+			<forward name="home" path="/home.jsp"></forward>
+			<forward name="register" path="/register.jsp"></forward>
+		</action>
+		
+		<action path="/action" name="AdminForm" validate="true"
+			type="com.ofs.sasi.struts.ActionForm.action.AdminAction" 
+			input="/admin.jsp">
+			<forward name="home" path="/Adminhome.jsp"></forward>
+			<forward name="admin" path="/admin.jsp"></forward>
+		</action>
+		
+		<action path="/Deposite" name="DepositeForm" validate="true"
+			type="com.ofs.sasi.struts.ActionForm.action.DepositeAction" 
+			input="/Deposite.jsp">
+			<forward name="success" path="/welcome.jsp"></forward>
+			<forward name="failure" path="/Deposite.jsp"></forward>
+		</action>
+		
+		<action path="/Withdrawl" name="WithdrawlForm" validate="true"
+			type="com.ofs.sasi.struts.ActionForm.action.WithdrawlAction" 
+			input="/withdrawl.jsp">
+			<forward name="success" path="/welcome.jsp"></forward>
+			<forward name="failure" path="/withdrawl.jsp"></forward>
+		</action>
+		
+		<action path="/transfer1" name="TransferForm" validate="true"
+			type="com.ofs.sasi.struts.ActionForm.action.TransferAction" 
+			input="/transfer.jsp">
+			<forward name="success" path="/welcome.jsp"></forward>
+			<forward name="failure" path="/transfer.jsp"></forward>
+		</action>
+		
+		<action path="/myprofile" name="ProfileForm" validate="true"
+			type="com.ofs.sasi.struts.ActionForm.action.ProfileAction" 
+			input="/myprofile.jsp">
+			<forward name="success" path="/welcome.jsp"></forward>
+			<forward name="failure" path="/myprofile.jsp"></forward>
+		</action>
+		
+		<action path="/record" name="RecordForm" validate="true"
+			type="com.ofs.sasi.struts.ActionForm.action.RecordAction">
+			<forward name="success" path="/record1.jsp"></forward>
+			<forward name="failure" path="/myprofile.jsp"></forward>
+		</action>
+		
+	    <action path="/UploadPage" type="org.apache.struts.actions.ForwardAction"
+              parameter="/fileupload.jsp"/>
+              
+        <action path="/Upload" name="fileUploadForm" validate="true"
+            type="com.ofs.sasi.struts.ActionForm.action.FileUploadAction"
+            input="/fileupload.jsp">
+            <forward name="success" path="/filedisplay.jsp"></forward>
+        </action>      
+              
+		
+	</action-mappings>
+
+	<message-resources parameter="/ApplicationResource" />
+</struts-config>
+ 

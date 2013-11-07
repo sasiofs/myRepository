@@ -1,0 +1,25 @@
+
+ <struts-config>
+	<form-beans>
+		<form-bean name="LoginForm" type="com.ofs.struts.helloworld.form.LoginForm" />
+		<form-bean name="registerForm" type="com.ofs.struts.helloworld.form.RegisterForm" />
+	</form-beans>
+	
+	<action-mappings>
+		<action path="/login" name="LoginForm" validate="true" input="/index.jsp"
+			type="com.ofs.struts.helloworld.action.LoginAction">
+			<forward name="success" path="/welcome.jsp" />
+			<forward name="failure" path="/index.jsp" />
+		</action>
+
+		<action path="/RegSubmit" name="registerForm" validate="true"
+			type="com.ofs.struts.helloworld.action.RegisterAction" 
+			input="/register.jsp">
+			<forward name="home" path="/home.jsp"></forward>
+			<forward name="register" path="/register.jsp"></forward>
+		</action>
+	</action-mappings>
+
+	<message-resources parameter="/ApplicationResource" />
+</struts-config>
+ 
